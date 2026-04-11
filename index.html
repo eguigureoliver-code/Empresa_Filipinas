@@ -15,8 +15,8 @@ scroll-behavior:smooth;
 }
 
 body{
-background:linear-gradient(135deg,#0b0f1a,#020617);
-color:white;
+background:linear-gradient(135deg,#0ea5e9,#f59e0b);
+color:#0f172a;
 }
 
 /* NAV */
@@ -25,29 +25,31 @@ position:fixed;
 width:100%;
 top:0;
 display:flex;
-justify-content:space-between;
-padding:15px 40px;
-background:rgba(0,0,0,0.4);
+justify-content:center;
+flex-wrap:wrap;
+gap:10px;
+padding:12px;
+background:rgba(255,255,255,0.25);
 backdrop-filter:blur(12px);
 z-index:1000;
 }
 
 nav a{
-color:white;
-margin-left:20px;
+color:#0f172a;
 text-decoration:none;
-transition:0.3s;
+font-weight:500;
+font-size:14px;
 }
 
 nav a:hover{
-color:#f59e0b;
+color:#f97316;
 }
 
 /* HEADER */
 header{
-height:100vh;
+min-height:100vh;
 background:
-linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
+linear-gradient(rgba(255,165,0,0.4),rgba(14,165,233,0.4)),
 url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80");
 background-size:cover;
 background-position:center;
@@ -57,117 +59,108 @@ justify-content:center;
 align-items:center;
 text-align:center;
 padding:20px;
+color:white;
 }
 
 header h1{
-font-size:3.5rem;
-font-weight:700;
+font-size:clamp(2rem,5vw,3rem);
+text-shadow:0 5px 15px rgba(0,0,0,0.5);
 }
 
 header p{
 margin-top:15px;
 max-width:600px;
-opacity:0.9;
 }
 
+/* BOTÓN */
 button{
-margin-top:25px;
-padding:15px 35px;
+margin-top:20px;
+padding:14px 28px;
 border:none;
 border-radius:30px;
-background:linear-gradient(45deg,#f59e0b,#facc15);
-color:black;
-font-weight:bold;
+background:linear-gradient(45deg,#f97316,#facc15);
+color:white;
 cursor:pointer;
+font-weight:bold;
 transition:0.3s;
-box-shadow:0 10px 25px rgba(245,158,11,0.3);
 }
 
 button:hover{
 transform:scale(1.05);
-box-shadow:0 15px 35px rgba(245,158,11,0.5);
 }
 
+/* SECCIONES */
 section{
-padding:100px 20px;
+padding:60px 20px;
 max-width:1100px;
-margin:auto;
+margin:60px auto;
 text-align:center;
+background:rgba(255,255,255,0.92);
+border-radius:20px;
 }
 
+/* GRID */
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-margin-top:30px;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+margin-top:20px;
 }
 
+/* CARDS */
 .card{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
-padding:25px;
-border-radius:20px;
-transition:0.4s;
-border:1px solid rgba(255,255,255,0.1);
+background:white;
+padding:18px;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-10px) scale(1.02);
-box-shadow:0 15px 30px rgba(0,0,0,0.5);
+transform:translateY(-5px);
 }
 
+/* 🔥 IMÁGENES CORREGIDAS (SIN RECORTE) */
 .img-section{
 width:100%;
-border-radius:20px;
-margin-top:25px;
-height:400px;
-object-fit:cover;
-transition:0.4s;
+height:auto;
+display:block;
+object-fit:contain;
+border-radius:15px;
+margin-top:20px;
+background:#f1f5f9;
+padding:10px;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+transition:0.3s ease;
 }
 
 .img-section:hover{
 transform:scale(1.02);
 }
 
-.highlight{
-color:#f59e0b;
-font-weight:bold;
+/* FINANZAS IMAGES */
+.card img{
+width:100%;
+height:auto;
+border-radius:10px;
+object-fit:contain;
 }
 
-.foda{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-margin-top:30px;
-}
-
-.foda div{
-padding:25px;
-border-radius:15px;
-font-weight:bold;
-}
-
-.fortalezas{background:linear-gradient(45deg,#16a34a,#22c55e);}
-.oportunidades{background:linear-gradient(45deg,#2563eb,#3b82f6);}
-.debilidades{background:linear-gradient(45deg,#dc2626,#ef4444);}
-.amenazas{background:linear-gradient(45deg,#9333ea,#a855f7);}
-
-.fade{
-opacity:0;
-transform:translateY(50px);
-transition:1s;
-}
-
-.show{
-opacity:1;
-transform:translateY(0);
-}
-
+/* FOOTER */
 footer{
-background:#020617;
-padding:30px;
+background:#0f172a;
+color:white;
+padding:25px;
 text-align:center;
-opacity:0.8;
+margin-top:40px;
+font-size:14px;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+nav a{font-size:12px;}
+section{padding:40px 15px;}
+header p{font-size:0.9rem;}
 }
 </style>
 </head>
@@ -175,175 +168,89 @@ opacity:0.8;
 <body>
 
 <nav>
-<div>
 <a href="#intro">Inicio</a>
 <a href="#pais">País</a>
 <a href="#cultura">Cultura</a>
-<a href="#economia">Economía</a>
 <a href="#empresa">Empresa</a>
-<a href="#foda">FODA</a>
-<a href="#protocolo">Protocolo</a>
 <a href="#finanzas">Finanzas</a>
-</div>
 </nav>
 
 <header>
 <h1>Mango Barkada Shake 🥭</h1>
-<p>Más que una bebida, una experiencia social inspirada en la cultura filipina.</p>
+<p>Una experiencia social tropical con potencial de inversión y adaptación cultural entre Filipinas y Honduras.</p>
 <button onclick="scrollToSection('intro')">Ver proyecto</button>
 </header>
 
-<section id="intro" class="fade">
-<h2>📘 Introducción</h2>
-<p style="margin-top:20px;">
-En la globalización actual, el éxito empresarial depende de la adaptación cultural. 
-Este proyecto analiza la implementación de <span class="highlight">Mango Barkada Shake</span> en Filipinas,
-integrando factores sociales, económicos y culturales.
+<section id="intro">
+<h2>Introducción</h2>
+<p style="margin-top:15px;">
+Este proyecto analiza la viabilidad del concepto Mango Barkada Shake como modelo de negocio inspirado en Filipinas y adaptado a Honduras.
 </p>
 <img class="img-section" src="filipina3.webp">
 </section>
 
-<section id="pais" class="fade">
-<h2>🌏 Perfil de Filipinas</h2>
+<section id="pais">
+<h2>Perfil de Filipinas</h2>
 
 <div class="grid">
-<div class="card">Más de 7,000 islas</div>
-<div class="card">Capital: Manila</div>
-<div class="card">Idioma: Filipino e inglés</div>
-<div class="card">Moneda: Peso filipino</div>
+<div class="card">🌴 Más de 7,000 islas</div>
+<div class="card">🏙️ Capital: Manila</div>
+<div class="card">🗣️ Idioma: Filipino e inglés</div>
+<div class="card">💰 Moneda: Peso filipino</div>
 </div>
 
-<p style="margin-top:20px;">
-Filipinas posee una ubicación estratégica en Asia que facilita el comercio internacional. 
-Su economía es una de las más dinámicas del sudeste asiático, con relaciones comerciales 
-importantes con Estados Unidos, Japón y China. El tipo de cambio frente al dólar permite 
-oportunidades de inversión extranjera, especialmente en el sector de alimentos y bebidas.
+<p style="margin-top:15px;">
+Filipinas es una economía emergente con fuerte crecimiento en turismo y emprendimiento.
 </p>
 
-<img class="img-section" src="filipinas2.webp">
+<img class="img-section" src="ftperfil.jpg">
 </section>
 
-<section id="cultura" class="fade">
-<h2>🎭 Cultura y Gastronomía</h2>
+<section id="cultura">
+<h2>Cultura y Gastronomía</h2>
+
+<p style="margin-top:15px;">
+El mango es clave en ambos países, lo que permite una adaptación cultural y comercial del producto.
+</p>
 
 <div class="grid">
-<div class="card">Influencia española y americana</div>
-<div class="card">Festividades religiosas</div>
-<div class="card">Concepto Barkada</div>
-<div class="card">Fuerte comunidad</div>
+<div class="card">🥭 Mango con chile</div>
+<div class="card">🥤 Batidos tropicales</div>
+<div class="card">🥥 Mango con coco</div>
+<div class="card">🍧 Postres fríos</div>
 </div>
-
-<p style="margin-top:20px;">
-El concepto <span class="highlight">Barkada</span> representa la unión de amigos.
-</p>
 
 <img class="img-section" src="filipinas1.webp">
+</section>
 
-<h3 style="margin-top:30px;">🍽️ Gastronomía</h3>
+<section id="empresa">
+<h2>Modelo de Negocio</h2>
 
 <div class="grid">
-<div class="card">Arroz Caldo</div>
-<div class="card">Balut</div>
-<div class="card">Bibingka</div>
-<div class="card">Lechón</div>
-</div>
-
-<img class="img-section" src="Filipinas.jpg">
-</section>
-
-<section id="economia" class="fade">
-<h2>📈 Entorno Económico</h2>
-
-<div class="grid">
-<div class="card">Crecimiento económico</div>
-<div class="card">Inversión extranjera</div>
-<div class="card">Digitalización</div>
-<div class="card">PYMES</div>
-</div>
-
-<p style="margin-top:20px;">
-Filipinas mantiene relaciones comerciales con Estados Unidos, Japón y China, lo que fortalece su estabilidad económica 
-y la convierte en un entorno atractivo para nuevos emprendimientos.
-</p>
-</section>
-
-<section id="empresa" class="fade">
-<h2>🏢 Modelo de Negocio</h2>
-
-<div class="grid">
-<div class="card"><h3>Misión</h3><p>Ofrecer bebidas que fomenten la convivencia.</p></div>
-<div class="card"><h3>Visión</h3><p>Ser marca líder en experiencias sociales.</p></div>
-<div class="card"><h3>Valores</h3><p>Unión, calidad, innovación.</p></div>
-<div class="card"><h3>Ventaja</h3><p>Concepto Barkada.</p></div>
-</div>
-
-<p style="margin-top:30px;">
-El modelo de negocio se basa en la adaptación cultural, integrando el concepto filipino de “Barkada” como eje central 
-de la experiencia del cliente, diferenciando el producto no solo por su sabor, sino por su valor social.
-</p>
-</section>
-
-<section id="foda" class="fade">
-<h2>📊 Análisis FODA</h2>
-
-<div class="foda">
-<div class="fortalezas">Producto atractivo</div>
-<div class="oportunidades">Alta demanda</div>
-<div class="debilidades">Concepto nuevo</div>
-<div class="amenazas">Competencia</div>
+<div class="card">Experiencia social</div>
+<div class="card">Innovación cultural</div>
+<div class="card">Producto adaptable</div>
 </div>
 </section>
 
-<section id="protocolo" class="fade">
-<h2>🤝 Protocolo de Negocios</h2>
+<section id="finanzas">
+<h2>Finanzas</h2>
 
-<div class="grid">
-<div class="card">Relaciones personales</div>
-<div class="card">Respeto jerárquico</div>
-<div class="card">Comunicación indirecta</div>
-<div class="card">Confianza</div>
-</div>
-
-<p style="margin-top:20px;">
-En Filipinas, los negocios se basan en relaciones humanas. Se prioriza el respeto, la confianza y la construcción 
-de vínculos antes de concretar acuerdos comerciales.
-</p>
-
-<p style="margin-top:20px;">
-El saludo inicial suele ser formal, utilizando títulos de cortesía, y el cierre de negocios se da una vez que existe 
-una relación sólida entre las partes.
-</p>
-</section>
-
-<section id="finanzas" class="fade">
-<h2>💼 Financial Corner</h2>
-
-<p style="margin-top:20px;">
-En esta sección se presenta un análisis financiero del proyecto, incluyendo costos de producción y proyecciones económicas,
-permitiendo evaluar la viabilidad del negocio.
-</p>
-
-<h3 style="margin-top:30px;">📊 Costos por unidad</h3>
 <div class="card">
-<p>Desglose de costos por unidad producida.</p>
-<img src="conta1.jpeg" style="width:100%;margin-top:20px;border-radius:15px;">
+<p>Estimación de inversión inicial.</p>
+<img src="conta1.jpeg">
 </div>
 
-<h3 style="margin-top:40px;">📈 Proyección anual</h3>
-<div class="card">
-<p>Simulación financiera anual del negocio.</p>
-<img src="Conta.jpeg" style="width:100%;margin-top:20px;border-radius:15px;">
+<div class="card" style="margin-top:20px;">
+<p>Proyección financiera del proyecto.</p>
+<img src="Conta.jpeg">
 </div>
-
-<p style="margin-top:30px;">
-Estos datos reflejan el potencial de rentabilidad del negocio, mostrando una propuesta sostenible y escalable.
-</p>
 </section>
 
-<section class="fade">
-<h2>💸 Invierte en Nosotros</h2>
-<p>Una oportunidad de inversión con alto potencial de crecimiento en el mercado hondureño.</p>
+<section>
+<h2>Invertir</h2>
 <button onclick="invertir()">Invertir ahora</button>
+<p id="msg" style="margin-top:15px;"></p>
 </section>
 
 <footer>
@@ -356,19 +263,14 @@ document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
 
 function invertir(){
-alert("Gracias por tu interés en Mango Barkada Shake 🥭");
+let monto = prompt("¿Cuánto deseas invertir?");
+if(monto && !isNaN(monto)){
+document.getElementById("msg").innerText =
+"Inversión registrada: $" + monto;
+}else{
+alert("Ingresa un valor válido");
 }
-
-const elementos=document.querySelectorAll(".fade");
-function mostrar(){
-const trigger=window.innerHeight*0.8;
-elementos.forEach(el=>{
-const top=el.getBoundingClientRect().top;
-if(top<trigger){el.classList.add("show");}
-});
 }
-window.addEventListener("scroll",mostrar);
-mostrar();
 </script>
 
 </body>
